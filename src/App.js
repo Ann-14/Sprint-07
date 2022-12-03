@@ -1,36 +1,40 @@
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { CheckBox } from './components/CheckBox';
 
+let suma = 0
+let webPrice=0
+let seoPrice=0
+let adsPrice=0
 
 function App() {
-  const [checkWeb, setCheckWeb] = useState(false)
-  const [checkSeo, setCheckSeo] = useState(false)
-  const [checkAds, setCheckAds] = useState(false)
-  const [totalDisplay, setTotalDisplay] = useState('')
-  let suma = []
+  const [checkWeb, setCheckWeb] = useState(false) 
+  const [checkSeo, setCheckSeo] = useState(false) 
+  const [checkAds, setCheckAds] = useState(false) 
+  
+  
 
-  const handleWebCheck = (event) =>{
+  const webCheckHandler = (e) =>{
     setCheckWeb(!checkWeb)
-    setTotalDisplay(event.target.value)
-    
+    webPrice=(+e.target.value)
+
   }
-  const handleSeoCheck = (event) =>{
+  const seoCheckHandler = (e) =>{
     setCheckSeo(!checkSeo)
-    setTotalDisplay(event.target.value)
-    
+    seoPrice=(+e.target.value)
   }
-  const handleAdsCheck = (event) =>{
+  const adsCheckHandler = (e) =>{
     setCheckAds(!checkAds)
-    
-   
+    adsPrice=(+e.target.value)
   }
-
-  if(checkWeb){
-    suma.push()
-  }
-
+  
+  
+  if(checkWeb === false){webPrice = 0}
+  if(checkSeo === false){seoPrice = 0}
+  if(checkAds === false){adsPrice = 0}
+  suma = (webPrice+seoPrice+adsPrice)
+  
   return (
    <>
   <div>
@@ -39,7 +43,8 @@ function App() {
    value={500}
    name='Web'
    id='checkbox1'
-   onChange={(e) => handleWebCheck(e)}
+   checked={checkWeb}
+   onChange={(e) => webCheckHandler(e)}
    />
    </div>
    <div className='flex items-center pl-3'>
@@ -48,7 +53,8 @@ function App() {
    value={300}
    name='Seo'
    id='checkbox2'
-   onChange={(e) => handleSeoCheck(e)}
+   checked={checkSeo}
+   onChange={(e) => seoCheckHandler(e)}
    />
    </div>
    <div>
@@ -57,12 +63,11 @@ function App() {
    value={200}
    name='Ads'
    id='checkbox3'
-   onChange={(e) => handleAdsCheck(e)}
+   checked={checkAds}
+   onChange={(e) => adsCheckHandler(e)}
    />
    </div>
-  <div>{suma}</div>
-   <div>Total{totalDisplay}</div>
-   <div>Total2{checkWeb || checkSeo || checkAds ? totalDisplay : ''}</div>
+  <div>Suma: {suma}</div>
    </>
   );
 }
