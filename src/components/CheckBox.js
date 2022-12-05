@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 export const CheckBox = ({label,value,onChange,name,id,checked}) => {
   return (

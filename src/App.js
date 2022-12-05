@@ -2,6 +2,8 @@ import { useState } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { CheckBox } from './components/CheckBox';
+import { Panel } from './components/Panel';
+
 
 let suma = 0
 let webPrice=0
@@ -13,7 +15,7 @@ function App() {
   const [checkSeo, setCheckSeo] = useState(false) 
   const [checkAds, setCheckAds] = useState(false) 
   
-  
+
 
   const webCheckHandler = (e) =>{
     setCheckWeb(!checkWeb)
@@ -35,8 +37,13 @@ function App() {
   if(checkAds === false){adsPrice = 0}
   suma = (webPrice+seoPrice+adsPrice)
   
+
+
+
   return (
    <>
+   <Panel webPrice={webPrice}  />
+   
   <div>
    <CheckBox 
    label={'Página Web'}
@@ -68,6 +75,7 @@ function App() {
    />
    </div>
   <div>Suma: {suma}</div>
+  
    </>
   );
 }
