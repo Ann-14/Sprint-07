@@ -2,7 +2,8 @@ import { useState } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { CheckBox } from './components/CheckBox';
-import { PanelStyled } from './styles/PanelStyled'
+import { Panel } from './components/Panel';
+
 
 
 
@@ -39,13 +40,23 @@ function App() {
   if (checkAds === false) { adsPrice = 0 }
 
 
-  const handlePages = (e) => {
-    setPages(e.target.value)
-
+  const handleAddPages = (num) => {
+    console.log(num)
+    setPages(pages + num)
   }
-  const handleLanguages = (e) => {
-    setLanguages(e.target.value)
 
+  const handleRemovePages = (num) => {
+    console.log(num)
+    setPages(pages - num)
+  }
+
+  const handleAddLanguages = (num) => {
+    console.log(num)
+    setLanguages(languages + num)
+  }
+  const handleRemoveLanguages = (num) => {
+    console.log(num)
+    setLanguages(languages - num)
   }
 
 
@@ -65,12 +76,15 @@ function App() {
       {checkWeb && (
 
         <>
-          <PanelStyled>
-            <label htmlFor="pages">Número de páginas:</label>
-            <input type='number' value={pages} name="pages" onChange={handlePages} placeholder='Pages' />
-            <label htmlFor="languages">Número de idiomas:</label>
-            <input type='number' value={languages} name="languages" onChange={handleLanguages} placeholder='Languages' />
-          </PanelStyled>
+          <Panel handleAddLanguages={handleAddLanguages}
+            handleRemoveLanguages={handleRemoveLanguages}
+            handleRemovePages={handleRemovePages}
+            handleAddPages={handleAddPages}
+            pages={pages}
+            languages={languages}>
+          </Panel>
+
+
         </>
       )}
       <div className='flex items-center pl-3'>
