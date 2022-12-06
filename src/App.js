@@ -66,10 +66,10 @@ function App() {
 
         <>
           <PanelStyled>
+            <label htmlFor="pages">Número de páginas:</label>
             <input type='number' value={pages} name="pages" onChange={handlePages} placeholder='Pages' />
-            <label htmlFor="userName"></label>
+            <label htmlFor="languages">Número de idiomas:</label>
             <input type='number' value={languages} name="languages" onChange={handleLanguages} placeholder='Languages' />
-            <label htmlFor="languages"></label>
           </PanelStyled>
         </>
       )}

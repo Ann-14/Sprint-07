@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const PanelStyled = styled.div`
-  border: 0.5rem solid pink;
+  border: 1rem solid pink;
   padding: 1.2rem 0.5rem;
-  width: 15rem;
-  height: 10rem;
+  width: 18rem;
+  height: 12rem;
+  padding: 1rem;
 `;
