@@ -5,9 +5,6 @@ import { CheckBox } from './components/CheckBox';
 import { Panel } from './components/Panel';
 
 
-
-
-
 let webPrice = 0
 let seoPrice = 0
 let adsPrice = 0
@@ -40,26 +37,6 @@ function App() {
   if (checkAds === false) { adsPrice = 0 }
 
 
-  const handleAddPages = (num) => {
-    console.log(num)
-    setPages(pages + num)
-  }
-
-  const handleRemovePages = (num) => {
-    console.log(num)
-    setPages(pages - num)
-  }
-
-  const handleAddLanguages = (num) => {
-    console.log(num)
-    setLanguages(languages + num)
-  }
-  const handleRemoveLanguages = (num) => {
-    console.log(num)
-    setLanguages(languages - num)
-  }
-
-
   return (
     <>
 
@@ -76,14 +53,11 @@ function App() {
       {checkWeb && (
 
         <>
-          <Panel handleAddLanguages={handleAddLanguages}
-            handleRemoveLanguages={handleRemoveLanguages}
-            handleRemovePages={handleRemovePages}
-            handleAddPages={handleAddPages}
+          <Panel setLanguages={setLanguages}
+            setPages={setPages}
             pages={pages}
             languages={languages}>
           </Panel>
-
 
         </>
       )}
