@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+
 import { CheckBox } from "./components/CheckBox";
 import { Storage } from "./components/Storage";
 import { Panel } from "./components/Panel";
+
+import { ButtonSubmit, WrapperBody } from "./styles/PanelStyled";
+import './styles/styles.css'
 
 let webPrice = 0;
 let seoPrice = 0;
@@ -15,7 +18,7 @@ function App() {
   const [checkAds, setCheckAds] = useState(false);
   const [pages, setPages] = useState(0);
   const [languages, setLanguages] = useState(0);
-  const [totalBudget, setTotalBudget] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const webCheckHandler = (e) => {
     setCheckWeb(!checkWeb);
@@ -39,76 +42,82 @@ function App() {
   if (checkAds === false) {
     adsPrice = 0;
   }
+  const totalWeb = webPrice + pages * languages * 30;
 
   //Ex 4 (LOCAL STORAGE)
   const [savedData, setSavedData] = useState(false);
-  const totalWeb = webPrice + pages * languages * 30;
+
 
   const saveData = () => {
-    localStorage.setItem("webLocalStorage", totalWeb);
-    alert("has guardado el $ del web");
+    localStorage.setItem("budgetLocalStorage", totalPrice);
+    alert("has guardado el $ del presupuesto");
     setSavedData(true);
   };
 
   useEffect(() => {
-    setTotalBudget(
+    setTotalPrice(
       (checkAds ? adsPrice : 0) +
-        (checkSeo ? seoPrice : 0) +
-        (checkWeb ? totalWeb : 0)
+      (checkSeo ? seoPrice : 0) +
+      (checkWeb ? totalWeb : 0)
     );
-    console.log("total from use effect", totalBudget);
-  }, [totalWeb, totalBudget, checkAds, checkSeo, checkWeb]);
+    console.log("total from use effect", totalPrice)
+
+  }, [totalWeb, totalPrice, checkAds, checkSeo, checkWeb]);
 
   return (
     <>
-      {!!savedData && <Storage />}
+      <WrapperBody>
+        {/* {!!savedData && <Storage />} */}
+        <h2>Escoge los productos que desees adquirir: </h2>
+        <hr />
+        <div>
+          <CheckBox
+            label={"Página Web (500€)"}
+            value={500}
+            name="Web"
+            id="checkbox1"
+            checked={checkWeb}
+            onChange={(e) => webCheckHandler(e)}
+          />
+        </div>
+        {checkWeb && (
+          <>
+            <Panel
+              setLanguages={setLanguages}
+              setPages={setPages}
+              pages={pages}
+              languages={languages}
+            ></Panel>
+          </>
+        )}
+        <div className="flex items-center pl-3">
+          <CheckBox
+            label={"Consultoría Seo (300€)"}
+            value={300}
+            name="Seo"
+            id="checkbox2"
+            checked={checkSeo}
+            onChange={(e) => seoCheckHandler(e)}
+          />
+        </div>
+        <div>
+          <CheckBox
+            label={"Campaña Google Ads(200€)"}
+            value={200}
+            name="Ads"
+            id="checkbox3"
+            checked={checkAds}
+            onChange={(e) => adsCheckHandler(e)}
+          />
+        </div>
 
-      <div>
-        <CheckBox
-          label={"Página Web (500€)"}
-          value={500}
-          name="Web"
-          id="checkbox1"
-          checked={checkWeb}
-          onChange={(e) => webCheckHandler(e)}
-        />
-      </div>
-      {checkWeb && (
-        <>
-          <Panel
-            setLanguages={setLanguages}
-            setPages={setPages}
-            pages={pages}
-            languages={languages}
-          ></Panel>
-        </>
-      )}
-      <div className="flex items-center pl-3">
-        <CheckBox
-          label={"Consultoría Seo (300€)"}
-          value={300}
-          name="Seo"
-          id="checkbox2"
-          checked={checkSeo}
-          onChange={(e) => seoCheckHandler(e)}
-        />
-      </div>
-      <div>
-        <CheckBox
-          label={"Campaña Google Ads(200€)"}
-          value={200}
-          name="Ads"
-          id="checkbox3"
-          checked={checkAds}
-          onChange={(e) => adsCheckHandler(e)}
-        />
-      </div>
+        <div>Total: {totalPrice} €</div>
 
-      <div>{totalBudget}</div>
-
-      <button className="btn btn-primary mt-2" onClick={saveData}>
-        Submit
-      </button>
+        <ButtonSubmit  onClick={saveData}>
+          Submit
+        </ButtonSubmit>
+        <Storage />
+      </WrapperBody>
     </>
   );
 }

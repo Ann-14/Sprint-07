@@ -1,3 +1,6 @@
+import { CheckBoxStyled } from "../styles/PanelStyled";
+
+
 export const CheckBox = ({
   label,
   value,
@@ -10,7 +13,7 @@ export const CheckBox = ({
   return (
     <>
       <label>
-        <input
+        <CheckBoxStyled
           type="checkbox"
           id={id}
           name={name}

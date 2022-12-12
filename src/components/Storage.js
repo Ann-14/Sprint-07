@@ -1,16 +1,21 @@
 import { useState, useEffect } from "react";
 
 export const Storage = () => {
-  const [webLocalStorage, setWebLocalStorage] = useState(0);
+  const [budget, setBudget] = useState(0);
 
   const getData = () => {
-    return JSON.parse(localStorage.getItem("webLocalStorage"));
+    return JSON.parse(localStorage.getItem("budgetLocalStorage"));
   };
 
   useEffect(() => {
-    setWebLocalStorage(getData());
-    
+    setBudget(getData());
+
   }, []);
 
-  return <div>El precio del web es: {webLocalStorage}</div>;
+  return (
+    <>
+      <h3>Local Storage</h3>
+      <div>El precio del budget es: {budget}</div>
+    </>
+  )
 };

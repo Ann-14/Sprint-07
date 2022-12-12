@@ -1,10 +1,4 @@
-.controls{
-    display: flex;
-  
-}
-.wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+body{
+    background: rgb(90,168,215);
+background: radial-gradient(circle, rgba(90,168,215,0.742734593837535) 1%, rgba(148,165,233,1) 97%);
 }

@@ -1,7 +1,9 @@
 
+import {
+  PanelStyled, PanelWrapper, ControlsStyled, ButtonControls,
+  LabelStyled
+} from '../styles/PanelStyled'
 
-import { PanelStyled } from '../styles/PanelStyled'
-import '../styles/styles.css'
 
 export const Panel = ({ setPages, setLanguages, pages, languages }) => {
 
@@ -9,22 +11,22 @@ export const Panel = ({ setPages, setLanguages, pages, languages }) => {
   return (
     <>
       <PanelStyled>
-        <div className='wrapper'>
-          <div className='controls'>
-            <label htmlFor="pages">Número de páginas:</label>
-            <button onClick={() => setPages(pages + 1)}> + </button>
+        <PanelWrapper>
+          <ControlsStyled>
+            <LabelStyled htmlFor="pages">Número de páginas:</LabelStyled>
+            <ButtonControls onClick={() => setPages(pages + 1)}> + </ButtonControls>
             <div>{pages}</div>
-            <button onClick={() => setPages(pages - 1)}> - </button>
-          </div>
+            <ButtonControls onClick={() => setPages(pages - 1)}> - </ButtonControls>
+          </ControlsStyled>
 
 
-          <div className='controls'>
-            <label htmlFor="languages">Número de idiomas:</label>
-            <button onClick={() => setLanguages(languages + 1)}> + </button>
+          <ControlsStyled>
+            <LabelStyled htmlFor="languages">Número de idiomas:</LabelStyled>
+            <ButtonControls onClick={() => setLanguages(languages + 1)}> + </ButtonControls>
             <div>{languages}</div>
-            <button onClick={() => setLanguages(languages - 1)}> - </button>
-          </div>
-        </div>
+            <ButtonControls onClick={() => setLanguages(languages - 1)}> - </ButtonControls>
+          </ControlsStyled>
+        </PanelWrapper>
       </PanelStyled>
 
     </>
