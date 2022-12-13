@@ -2,15 +2,16 @@ import { useState, useEffect } from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 import { CheckBox } from "./components/CheckBox";
-import { Storage } from "./components/Storage";
+// import { Storage } from "./components/Storage";
 import { Panel } from "./components/Panel";
 
 import { ButtonSubmit, WrapperBody } from "./styles/PanelStyled";
-import './styles/styles.css'
+import "./styles/styles.css";
 
 let webPrice = 0;
 let seoPrice = 0;
 let adsPrice = 0;
+let currentBudget;
 
 function App() {
   const [checkWeb, setCheckWeb] = useState(false);
@@ -19,6 +20,7 @@ function App() {
   const [pages, setPages] = useState(0);
   const [languages, setLanguages] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [budgetData, setBudgetData] = useState([]);
 
   const webCheckHandler = (e) => {
     setCheckWeb(!checkWeb);
@@ -42,27 +44,47 @@ function App() {
   if (checkAds === false) {
     adsPrice = 0;
   }
-  const totalWeb = webPrice + pages * languages * 30;
 
   //Ex 4 (LOCAL STORAGE)
-  const [savedData, setSavedData] = useState(false);
-
-
-  const saveData = () => {
-    localStorage.setItem("budgetLocalStorage", totalPrice);
-    alert("has guardado el $ del presupuesto");
-    setSavedData(true);
-  };
 
   useEffect(() => {
-    setTotalPrice(
-      (checkAds ? adsPrice : 0) +
-      (checkSeo ? seoPrice : 0) +
-      (checkWeb ? totalWeb : 0)
-    );
-    console.log("total from use effect", totalPrice)
+    //we need to check if there's data storaged in localStorage
+    if (budgetData.length !== 0) {
+      localStorage.setItem("budgetLocalStorage", JSON.stringify(budgetData));
+    }
+  }, [budgetData]);
 
-  }, [totalWeb, totalPrice, checkAds, checkSeo, checkWeb]);
+  useEffect(() => {
+    currentBudget = JSON.parse(localStorage.getItem("budgetLocalStorage"));
+    if (currentBudget) {
+      loadData(currentBudget);
+    }
+  }, []);
+
+  const loadData = (currentBudget) => {
+    setCheckWeb(currentBudget[0].checkWeb);
+    setCheckSeo(currentBudget[0].checkSeo);
+    setCheckAds(currentBudget[0].checkAds);
+    setPages(currentBudget[0].pages);
+    setLanguages(currentBudget[0].languages);
+    setTotalPrice(currentBudget[0].totalPrice);
+  };
+
+  const submitData = () => {
+    alert("Budget Saved ✔");
+    setBudgetData([
+      { checkWeb, checkAds, checkSeo, pages, languages, totalPrice },
+    ]);
+  };
+
+  //calculo total presupuesto
+  useEffect(() => {
+    setTotalPrice(
+      (checkAds ? 200 : 0) +
+        (checkSeo ? 300 : 0) +
+        (checkWeb ? 500 + pages * languages * 30 : 0)
+    );
+  }, [totalPrice, checkAds, checkSeo, checkWeb, languages, pages]);
 
   return (
     <>
@@ -113,10 +135,8 @@ function App() {
 
         <div>Total: {totalPrice} €</div>
 
-        <ButtonSubmit  onClick={saveData}>
-          Submit
-        </ButtonSubmit>
-        <Storage />
+        <ButtonSubmit onClick={submitData}>Submit</ButtonSubmit>
+        {/* <Storage /> */}
       </WrapperBody>
     </>
   );
