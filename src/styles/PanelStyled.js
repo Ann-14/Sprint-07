@@ -92,3 +92,33 @@ margin-right: 1rem;
 margin-bottom:3rem;
 
 `
+
+/* WELCOME.JS STYLING*/
+export const WelcomeBackground = styled.div`
+  /* height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; */
+  /* background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/seamless-pattern-with-stars-and-magical-leonid-zarubin.jpg"); */
+`;
+
+export const WelcomeCard = styled.div`
+  width: 50%;
+  height: 50%;
+  margin-left: 50%;
+  margin-right: 50%;
+  background-color: #f6e8c8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5 1.2rem;
+  margin-top: 4rem;
+  border-radius: 2rem;
+`;
+
+export const WelcomeText = styled.div`
+  color: #151314;
+  font-size: 2rem;
+`;

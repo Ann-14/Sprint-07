@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
+import { Link, Navigate, Route, Routes } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 import { CheckBox } from "./components/CheckBox";
-// import { Storage } from "./components/Storage";
+import { Navbar } from "./components/Navbar";
 import { Panel } from "./components/Panel";
-
+import { Welcome } from "./components/Welcome";
 import { ButtonSubmit, WrapperBody } from "./styles/PanelStyled";
 import "./styles/styles.css";
+
 
 let webPrice = 0;
 let seoPrice = 0;
@@ -85,9 +87,37 @@ function App() {
         (checkWeb ? 500 + pages * languages * 30 : 0)
     );
   }, [totalPrice, checkAds, checkSeo, checkWeb, languages, pages]);
+//Ex 5 Welcome Message
+const [welcomeMessage, setWelcomeMessage] = useState(true);
+
+const changeWelcomeState = (dataFromChild) =>{
+  setWelcomeMessage(dataFromChild)
+}
+
+if (welcomeMessage === true) {
+  return (
+    <>
+    
+      <Welcome handleStart={changeWelcomeState}></Welcome>
+    </>
+  );
+} else {
+
 
   return (
     <>
+    <h1>Home</h1>
+   <Navbar welcomePage={Welcome} app={App} Link={Link}/>
+    <hr />
+
+    <Routes>
+<Route path="app" element={<App />} />
+<Route path="welcome" element={<Welcome />} />
+
+<Route path="/*" element={<Navigate to='/app' />} />
+
+    </Routes>
+
       <WrapperBody>
         {/* {!!savedData && <Storage />} */}
         <h2>Escoge los productos que desees adquirir: </h2>
@@ -136,10 +166,10 @@ function App() {
         <div>Total: {totalPrice} €</div>
 
         <ButtonSubmit onClick={submitData}>Submit</ButtonSubmit>
-        {/* <Storage /> */}
+      
       </WrapperBody>
     </>
   );
 }
-
+}
 export default App;
