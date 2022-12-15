@@ -2,10 +2,10 @@
 import {
   PanelStyled, PanelWrapper, ControlsStyled, ButtonControls,
   LabelStyled
-} from '../styles/PanelStyled'
+} from '../styles/StyledComponents'
 
 
-export const Panel = ({ setPages, setLanguages, pages, languages }) => {
+export const WebConfiguration = ({ setPages, setLanguages, pages, languages }) => {
 
 
   return (
@@ -18,7 +18,6 @@ export const Panel = ({ setPages, setLanguages, pages, languages }) => {
             <div>{pages}</div>
             <ButtonControls onClick={() => setPages(pages - 1)}> - </ButtonControls>
           </ControlsStyled>
-
 
           <ControlsStyled>
             <LabelStyled htmlFor="languages">Número de idiomas:</LabelStyled>

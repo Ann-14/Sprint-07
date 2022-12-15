@@ -1,4 +1,30 @@
 body{
-    background: rgb(90,168,215);
+
+background: rgb(90,168,215);
 background: radial-gradient(circle, rgba(90,168,215,0.742734593837535) 1%, rgba(148,165,233,1) 97%);
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    background-color: rgb(90, 123, 215);
+
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+}
+nav a{
+ text-decoration: none;   
+ display: inline-block;
+ text-decoration: none;
+ color: #333;
+ font-weight: 500;
+ font-size: 1.8rem;
+ transition: all 0.3s;
 }

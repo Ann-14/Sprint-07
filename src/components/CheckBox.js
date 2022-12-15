@@ -1,4 +1,4 @@
-import { CheckBoxStyled } from "../styles/PanelStyled";
+import { CheckBoxStyled } from "../styles/StyledComponents";
 
 
 export const CheckBox = ({

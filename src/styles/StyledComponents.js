@@ -1,11 +1,17 @@
 import styled from "styled-components";
-
+import ImgHome from  '../img/pexels-fauxels-3184306.jpg' 
 /* APP.JS STYLING*/
 export const WrapperBody = styled.div`
-  max-width: 120rem;
+
   margin: 0 auto;
   font-size: 1.8rem;
   line-height: 4rem;
+  display: flex;
+  flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ text-align: center; 
+ height: 100vh; 
    
   
   `
@@ -72,7 +78,7 @@ export const ControlsStyled = styled.div`
 export const ButtonControls = styled.button`
    display:inline-block;
    padding:0.6rem 1.6rem;
-   border:0.1rem solid #FFFFFF;
+   border:0.1rem solid #4095c7;
    margin:0.3rem;
    box-sizing: border-box;
    text-decoration:none;
@@ -95,11 +101,11 @@ margin-bottom:3rem;
 
 /* WELCOME.JS STYLING*/
 export const WelcomeBackground = styled.div`
-  /* height: 100vh;
+   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center; */
-  /* background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/seamless-pattern-with-stars-and-magical-leonid-zarubin.jpg"); */
+  align-items: center; 
+  background-image: url('../img/pexels-fauxels-3184306.jpg') ; 
 `;
 
 export const WelcomeCard = styled.div`
@@ -107,7 +113,7 @@ export const WelcomeCard = styled.div`
   height: 50%;
   margin-left: 50%;
   margin-right: 50%;
-  background-color: #f6e8c8;
+  background-color:#4095c6 ;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,13 +1,13 @@
-import { WelcomeBackground, WelcomeCard,WelcomeText } from "../styles/PanelStyled"
+import { WelcomeBackground, WelcomeCard,WelcomeText } from "../styles/StyledComponents"
 
-export const Welcome = ({handleStart}) => {
-    const data = false
+export const Home = () => {
+    
     return (
       <>
      <WelcomeBackground>
+      
       <WelcomeCard>
           <WelcomeText>This is an An app created with React JS that creates budgets for clients</WelcomeText>
-      <button onClick={() => handleStart(data)}>Start!</button>
       </WelcomeCard>
       </WelcomeBackground>
       </>
