@@ -1,67 +1,95 @@
-body{
+body {
 
-background: rgb(90,168,215);
-background: radial-gradient(circle, rgba(90,168,215,0.742734593837535) 1%, rgba(148,165,233,1) 97%);
+  background: rgb(90, 168, 215);
+  background: radial-gradient(circle, rgba(90, 168, 215, 0.742734593837535) 1%, rgba(148, 165, 233, 1) 97%);
 }
 
-header{
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-    background-color: rgb(90, 123, 215);
+header {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  background-color: rgb(90, 123, 215);
 
 }
 
-nav ul{
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 3.2rem;
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
 }
-nav a{
- text-decoration: none;   
- display: inline-block;
- text-decoration: none;
- color: #333;
- font-weight: 500;
- font-size: 1.8rem;
- transition: all 0.3s;
+
+nav a {
+  text-decoration: none;
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.8rem;
+  transition: all 0.3s;
 }
 
 /*ERROR MODAL*/
-.backdrop{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.75);
-  }
-  .modal{
-    position: fixed;
-    top: 30vh;
-    left: 10%;
-    width: 80%;
-    z-index: 100;
-    overflow: hidden;
-  }
-  header {
-    background: #4f005f;
-    padding: 1rem;
-  }
-  
-  header h2 {
-    margin: 0;
-    color: white;
-  }
-  .content {
-    padding: 1rem;
-  }
-  
-  .actions {
-   
-    display: flex;
-    justify-content: center;
-  }
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.20);
+}
+
+.modal {
+  position: fixed;
+  top: 50vh;
+  left: 60%;
+  z-index: 100;
+  overflow: hidden;
+  border: 1px solid black;
+  background-color: rgb(255, 255, 255, 0.8);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  width: 30rem;
+  height: 4.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+header {
+  background: #603c68;
+  padding: 1rem;
+}
+
+header h2 {
+  margin: 0;
+  color: white;
+}
+
+.content {
+  padding: 1rem;
+  background-color: #d3c2d6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.btn-popUp {
+  background-color: #ddd1d1;
+  display: inline-block;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 6px;
+  font-weight: 500;
+  line-height: 1.2rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
