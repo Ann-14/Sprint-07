@@ -113,7 +113,7 @@ export const WelcomeCard = styled.div`
   height: 50%;
   margin-left: 50%;
   margin-right: 50%;
-  background-color:#4095c6 ;
+  background-color:#4095c6;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,3 +128,20 @@ export const WelcomeText = styled.div`
   color: #151314;
   font-size: 2rem;
 `;
+
+
+export const Card = styled.div`
+border: 1px solid black;
+background-color: rgb(255, 255, 255, 0.8);
+padding: 0.5rem 1.5rem;
+border-radius: 0.5rem;
+margin:1rem;
+font-size:10px;
+width:70%;
+height: 20rem;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 1rem;
+flex-direction: column;
+`

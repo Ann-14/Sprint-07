@@ -17,28 +17,7 @@ export const Main = () => {
     const [totalPrice, setTotalPrice] = useState(0);
     const [budgetData, setBudgetData] = useState([]);
   
-    const webCheckHandler = (e) => {
-      setCheckWeb(!checkWeb);
-      
-    };
-    const seoCheckHandler = (e) => {
-      setCheckSeo(!checkSeo);
-      
-    };
-    const adsCheckHandler = (e) => {
-      setCheckAds(!checkAds);
-      
-    };
   
-    if (checkWeb === false) {
-      
-    }
-    if (checkSeo === false) {
-     
-    }
-    if (checkAds === false) {
-      
-    }
   
     //Ex 4 (LOCAL STORAGE)
   
@@ -96,10 +75,10 @@ export const Main = () => {
           <CheckBox
             label={"Página Web (500€)"}
             value={500}
-            name="Web"
-            id="checkbox1"
+            name="web"
+            id="web"
             checked={checkWeb}
-            onChange={(e) => webCheckHandler(e)}
+            onChange={(e) => setCheckWeb(!checkWeb)}
           />
         </div>
         {checkWeb && (
@@ -116,20 +95,20 @@ export const Main = () => {
           <CheckBox
             label={"Consultoría Seo (300€)"}
             value={300}
-            name="Seo"
-            id="checkbox2"
+            name="seo"
+            id="seo"
             checked={checkSeo}
-            onChange={(e) => seoCheckHandler(e)}
+            onChange={(e) => setCheckSeo(!checkSeo)}
           />
         </div>
         <div>
           <CheckBox
             label={"Campaña Google Ads(200€)"}
             value={200}
-            name="Ads"
-            id="checkbox3"
+            name="ads"
+            id="ads"
             checked={checkAds}
-            onChange={(e) => adsCheckHandler(e)}
+            onChange={(e) =>  setCheckAds(!checkAds)}
           />
         </div>
 
@@ -141,4 +120,3 @@ export const Main = () => {
     </>
   );
 }
-

@@ -1,6 +1,5 @@
 
 import { Link, Route, Routes } from "react-router-dom";
-
 import { Home } from "./Pages/Home";
 import { Main } from "./Pages/Main";
 
@@ -20,7 +19,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/main" element={<Main />} />
-
       </Routes>
     </>
 
