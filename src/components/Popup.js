@@ -1,6 +1,4 @@
 
-import { Card } from "../styles/StyledComponents"
-
 import "../styles/styles.css";
 
 export const Popup = (props) => {
