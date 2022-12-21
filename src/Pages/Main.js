@@ -6,7 +6,6 @@ import { WebConfiguration } from "../components/WebConfiguration";
 import { ButtonSubmit, WrapperBody } from "../styles/StyledComponents";
 import "../styles/styles.css";
 
-
 let currentBudget;
 
 export const Main = () => {
@@ -19,7 +18,15 @@ export const Main = () => {
   const [budgets, setBudgets] = useState([]);
   const [budgetName, setBudgetName] = useState("");
   const [clientName, setClientName] = useState("");
- 
+
+  //calculo total presupuesto
+  useEffect(() => {
+    setTotalPrice(
+      (checkAds ? 200 : 0) +
+      (checkSeo ? 300 : 0) +
+      (checkWeb ? 500 + pages * languages * 30 : 0)
+    );
+  }, [totalPrice, checkAds, checkSeo, checkWeb, languages, pages]);
   //Ex 4 (LOCAL STORAGE)
 
   useEffect(() => {
@@ -36,14 +43,6 @@ export const Main = () => {
     }
   }, []);
 
-  //calculo total presupuesto
-  useEffect(() => {
-    setTotalPrice(
-      (checkAds ? 200 : 0) +
-      (checkSeo ? 300 : 0) +
-      (checkWeb ? 500 + pages * languages * 30 : 0)
-    );
-  }, [totalPrice, checkAds, checkSeo, checkWeb, languages, pages]);
   //Ex 7 Adding budgets
 
   const submitData = () => {
@@ -59,8 +58,22 @@ export const Main = () => {
       ads: checkAds,
       totalPrice: totalPrice
     }
+
     //we add the new budget into the budgets array
     setBudgets([...budgets, newBudget])
+    clearChecks()
+  }
+  const clearChecks = () => {
+
+    setBudgetName("")
+    setClientName("")
+    setCheckWeb(false)
+    setCheckSeo(false)
+    setCheckAds(false)
+    setPages(0)
+    setLanguages(0)
+    setTotalPrice(0)
+
   }
 
   //we need to copy the budgets array, otherwise we mutate the original one
@@ -69,6 +82,25 @@ export const Main = () => {
   useEffect(() => {
     setBudgetsList([...budgets]);
   }, [budgets])
+
+  //Ex 8 Adding 3 buttons to control budgetsList
+  const handleReset = () => {
+    setBudgetsList([...budgets])
+  }
+
+  const handleSort = () => {
+    setBudgetsList(
+      budgetsList.sort(function (a, b) {
+        if (a.budgetName < b.budgetName) { return -1 }
+        if (a.budgetName > b.budgetName) { return 1 }
+        return 0
+      })
+    )
+    setBudgetsList([...budgetsList])
+    return budgetsList
+  }
+
+
 
   return (
     <>
@@ -149,7 +181,10 @@ export const Main = () => {
             </WrapperBody>
           </div>
           <div className="col-7">
+            <button className="me-5" onClick={handleReset}>Reset</button>
+            <button onClick={handleSort}>Order</button>
             <BudgetsList budgetsList={budgetsList}
+
             />
           </div>
         </div>
