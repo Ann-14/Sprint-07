@@ -8,6 +8,7 @@ import "../styles/styles.css";
 
 let currentBudget;
 
+
 export const Main = () => {
   const [checkWeb, setCheckWeb] = useState(false);
   const [checkSeo, setCheckSeo] = useState(false);
@@ -87,20 +88,36 @@ export const Main = () => {
   const handleReset = () => {
     setBudgetsList([...budgets])
   }
-
-  const handleSort = () => {
+  //Order by Name
+  const handleSortName = () => {
     setBudgetsList(
       budgetsList.sort(function (a, b) {
-        if (a.budgetName < b.budgetName) { return -1 }
-        if (a.budgetName > b.budgetName) { return 1 }
+        if (a.budgetName.toLowerCase() < b.budgetName.toLowerCase()) return -1
+        if (a.budgetName.toLowerCase() > b.budgetName.toLowerCase()) return 1
+        return 0
+      })
+    )
+    setBudgetsList([...budgetsList])
+ 
+  }
+  //Order by Date
+  const handleSortDate = () => {
+    setBudgetsList(
+      budgetsList.sort(function (a, b) {
+        if (a.budgetDate < b.budgetDate) return -1
+        if (a.budgetDate > b.budgetDate) return 1
         return 0
       })
     )
     setBudgetsList([...budgetsList])
     return budgetsList
   }
-
-
+  //Searching a budget by using an input text
+  const handleChange = (event) => {
+  const foundBudgets = budgetsList.filter(elem =>
+      elem.budgetName === event.target.value)
+    foundBudgets.length > 0 ? setBudgetsList(foundBudgets) : setBudgetsList(budgets)
+  }
 
   return (
     <>
@@ -181,8 +198,12 @@ export const Main = () => {
             </WrapperBody>
           </div>
           <div className="col-7">
-            <button className="me-5" onClick={handleReset}>Reset</button>
-            <button onClick={handleSort}>Order</button>
+            <button onClick={handleReset}>Reset</button>
+            <button onClick={handleSortName}>Order by name</button>
+            <button onClick={handleSortDate}>Order by date</button>
+            <input type='text'
+              onChange={handleChange}
+            ></input>
             <BudgetsList budgetsList={budgetsList}
 
             />
