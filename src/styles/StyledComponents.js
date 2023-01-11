@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import ImgHome from  '../img/pexels-fauxels-3184306.jpg' 
 /* APP.JS STYLING*/
 export const WrapperBody = styled.div`
 
@@ -105,7 +104,7 @@ export const WelcomeBackground = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center; 
-  background-image: url('../img/pexels-fauxels-3184306.jpg') ; 
+  
 `;
 
 export const WelcomeCard = styled.div`

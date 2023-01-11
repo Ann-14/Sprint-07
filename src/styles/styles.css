@@ -1,19 +1,35 @@
-body {
 
-  background: rgb(90, 168, 215);
-  background: radial-gradient(circle, rgba(90, 168, 215, 0.742734593837535) 1%, rgba(148, 165, 233, 1) 97%);
+*{
+  margin:0px;
+  padding: 0px;
+  box-sizing: border-box;
+  
+  }
+  
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+/* html {
+    font-size: 62.5%; 
+} */
+body {
+  height:100vh;
+  background: rgb(2,0,36);
+background: linear-gradient(346deg, rgba(2,0,36,1) 0%, rgba(121,9,118,0.683782154340836) 22%, rgba(0,93,255,0.863846463022508) 83%);
 }
 
-header {
+/* header {
   display: flex;
   flex-direction: row;
   align-content: center;
   justify-content: center;
   background-color: rgb(90, 123, 215);
 
-}
+} */
 
-nav ul {
+/* nav ul {
   list-style: none;
   display: flex;
   align-items: center;
@@ -28,7 +44,7 @@ nav a {
   font-weight: 500;
   font-size: 1.8rem;
   transition: all 0.3s;
-}
+} */
 
 /*ERROR MODAL*/
 .backdrop {
@@ -60,10 +76,10 @@ nav a {
 
 }
 
-header {
+/* header {
   background: #603c68;
   padding: 1rem;
-}
+} */
 
 header h2 {
   margin: 0;
