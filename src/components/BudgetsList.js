@@ -4,7 +4,7 @@ import { BudgetItem } from './BudgetItem';
 
 export const BudgetsList = ({budgetsList}) => {
   return (
-    <div className='budgets-side'>
+    <div className=''>
     {
           budgetsList.map((budgetItem, index)=>(
             <BudgetItem key={index} budgetItem={budgetItem} index={index} ></BudgetItem>

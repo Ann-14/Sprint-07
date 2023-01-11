@@ -2,10 +2,12 @@
 import "../styles/styles.css";
 export const BudgetItem = ({budgetItem, index}) => {
   return (
-    <div className='card-body'>
-              <div className='card-wrapper'>
-              {/* <div>{index + 1}</div> */}
-              <div className='card-title'>{budgetItem.budgetName}</div>
+    <div className='flex flex-col md:flex-row '>
+              
+            <div className="flex flex-col md:flex-row border gap-4 mx-8 ">
+
+
+              <div className=''>{budgetItem.budgetName}</div>
               <div>{budgetItem.clientName}</div>
               <div>{budgetItem.budgetDate}</div>
               <div>Web {budgetItem.web ? "✔" : "❌"}</div>
@@ -14,8 +16,8 @@ export const BudgetItem = ({budgetItem, index}) => {
               <div>Seo{budgetItem.seo ? "✔" : "❌"}</div>
               <div>Google Ads{budgetItem.ads ? "✔" : "❌"}</div>
               <div>{budgetItem.totalPrice} € </div>
-              
+              </div>
             </div>
-            </div>
+            
   )
 }

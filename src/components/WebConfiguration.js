@@ -34,33 +34,36 @@ if(e.target.id === 'btnLanguages'){
 }
   return (
     <>
-      <PanelStyled>
-        <PanelWrapper>
-          <ControlsStyled>
-            <LabelStyled htmlFor="pages">Número de páginas:</LabelStyled>
-            <ButtonControls onClick={() => setPages(pages + 1)}> + </ButtonControls>
-            <div>{pages}</div>
-            <ButtonControls onClick={() => setPages(pages - 1)}> - </ButtonControls>
+      <div className='flex text-center flex-col text'>
+      
+        <div className='flex justify-center'>
+         
+          <div className='flex flex-col justify-center text-center'>
+            
+            <label  htmlFor="pages" className='mr-4'> Pages:</label>
+            <button onClick={() => setPages(pages + 1)} className=" bg-transparent hover:bg-pink-400 text-black bold px-2 border hover:border-transparent "> + </button>
+            <div className='mx-2'>{pages}</div>
+            <button onClick={() => setPages(pages - 1)} className="bg-transparent hover:bg-pink-400 text-black bold px-2 border hover:border-transparent "> - </button>
             <button
             id='btnPages'
             onClick={ popUpHandler}
-             className='btn bg-primary'>i</button>
+             className='btn '>i</button>
              {popUpShowing && <Popup title={popUpShowing.title} message={popUpShowing.message} onConfirm={closingHandler}/>}
-          </ControlsStyled>
+          </div>
 
-          <ControlsStyled>
-            <LabelStyled htmlFor="languages">Número de idiomas:</LabelStyled>
-            <ButtonControls onClick={() => setLanguages(languages + 1)}> + </ButtonControls>
-            <div>{languages}</div>
-            <ButtonControls onClick={() => setLanguages(languages - 1)}> - </ButtonControls>
+          <div className='flex flex-col justify-center text-center'>
+            <label htmlFor="languages"  className='mr-4'> Languages:</label>
+            <button onClick={() => setLanguages(languages + 1)} className='bg-transparent hover:bg-pink-400 text-black bold px-2 border hover:border-transparent '> + </button>
+            <div className='mx-2'>{languages}</div>
+            <button onClick={() => setLanguages(languages - 1)} className='bg-transparent hover:bg-pink-400 text-black bold px-2 border hover:border-transparent '> - </button>
             <button
             id='btnLanguages'
             onClick={ popUpHandler}
-             className='btn bg-primary'>i</button>
+             className='btn'>i</button>
              {popUpShowing && <Popup title={popUpShowing.title} message={popUpShowing.message} onConfirm={closingHandler}/>}
-          </ControlsStyled>
-        </PanelWrapper>
-      </PanelStyled>
+          </div>
+        </div>
+      </div>
 
     </>
   )
