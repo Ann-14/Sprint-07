@@ -1,22 +1,20 @@
-
-*{
-  margin:0px;
+* {
+  margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  
-  }
-  
-
-body {
- 
-  display: flex;
-  flex-direction:column;
-  min-height:100vh;
-
-  background: rgb(2,0,36);
-background: linear-gradient(346deg, rgba(2,0,36,1) 0%, rgba(121,9,118,0.683782154340836) 22%, rgba(0,93,255,0.863846463022508) 83%);
 }
-
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    346deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(121, 9, 118, 0.683782154340836) 22%,
+    rgba(0, 93, 255, 0.863846463022508) 83%
+  );
+}
 
 /*ERROR MODAL*/
 .backdrop {
@@ -26,73 +24,43 @@ background: linear-gradient(346deg, rgba(2,0,36,1) 0%, rgba(121,9,118,0.68378215
   width: 100%;
   height: 100vh;
   z-index: 10;
-  background-color: rgba(0, 0, 0, 0.20);
+  background-color: rgba(0, 0, 0, 0.2);
 }
-
 .modal {
   position: fixed;
-  top: 50vh;
-  left: 60%;
+  top: 40vh;
+  left: 40%;
   z-index: 100;
   overflow: hidden;
-  border: 1px solid black;
-  background-color: rgb(255, 255, 255, 0.8);
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
+  border: 4px solid black;
+  padding:1.6rem;
   font-size: 1.2rem;
-  width: 30rem;
-  height: 4.5rem;
+  width: 25rem;
+  height: 2.6rem;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
-
-
-
-header h2 {
-  margin: 0;
-  color: white;
-}
-
 .content {
-  padding: 1rem;
-  background-color: #d3c2d6;
+  padding: 1.6rem;
+  margin-top:1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-
-
 }
-
 .btn-popUp {
   background-color: #ddd1d1;
   display: inline-block;
   cursor: pointer;
   display: inline-block;
-  font-size: 6px;
+  font-size: 10px;
   font-weight: 500;
   line-height: 1.2rem;
   margin-bottom: 2rem;
   margin-left: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.5rem;
   text-align: center;
 }
-
-.budgets-side{
-  margin-top: 20rem;
-  display: flex;
-  flex-direction:row;
-}
-.card-body{
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-  text-align: center;
-  overflow: hidden;
-  border: 1px solid black;
-  background-color: rgb(255, 255, 255, 0.8);
-
+footer {
+  margin-top: auto;
 }

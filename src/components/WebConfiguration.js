@@ -1,9 +1,6 @@
 
 import { useState } from 'react'
-import {
-  PanelStyled, PanelWrapper, ControlsStyled, ButtonControls,
-  LabelStyled
-} from '../styles/StyledComponents'
+
 import { Popup } from './Popup'
 
 
@@ -36,12 +33,12 @@ if(e.target.id === 'btnLanguages'){
     <>
       <div className='flex text-center flex-col text'>
       
-        <div className='flex justify-center'>
+        <div className='flex justify-center flex-col '>
          
           <div className='flex flex-col justify-center text-center'>
             
-            <label  htmlFor="pages" className='mr-4'> Pages:</label>
-            <button onClick={() => setPages(pages + 1)} className=" bg-transparent hover:bg-pink-400 text-black bold px-2 border hover:border-transparent "> + </button>
+            <label  htmlFor="pages" className='mr-4 '> Choose the number of pages</label>
+            <button onClick={() => setPages(pages + 1)} className=" bg-transparent hover:bg-pink-400 text-black bold px-2 border hover:border-transparent mt-2 "> + </button>
             <div className='mx-2'>{pages}</div>
             <button onClick={() => setPages(pages - 1)} className="bg-transparent hover:bg-pink-400 text-black bold px-2 border hover:border-transparent "> - </button>
             <button
@@ -52,14 +49,14 @@ if(e.target.id === 'btnLanguages'){
           </div>
 
           <div className='flex flex-col justify-center text-center'>
-            <label htmlFor="languages"  className='mr-4'> Languages:</label>
-            <button onClick={() => setLanguages(languages + 1)} className='bg-transparent hover:bg-pink-400 text-black bold px-2 border hover:border-transparent '> + </button>
+            <label htmlFor="languages"  className='mr-4'> Choose the number of languages</label>
+            <button onClick={() => setLanguages(languages + 1)} className='bg-transparent hover:bg-pink-400 text-black bold px-2 border hover:border-transparent mt-2'> + </button>
             <div className='mx-2'>{languages}</div>
             <button onClick={() => setLanguages(languages - 1)} className='bg-transparent hover:bg-pink-400 text-black bold px-2 border hover:border-transparent '> - </button>
             <button
             id='btnLanguages'
             onClick={ popUpHandler}
-             className='btn'>i</button>
+             className='btn mb-2'>i</button>
              {popUpShowing && <Popup title={popUpShowing.title} message={popUpShowing.message} onConfirm={closingHandler}/>}
           </div>
         </div>

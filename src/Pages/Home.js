@@ -6,21 +6,21 @@ export const Home = () => {
 
   return (
     <>
-
-      <div class="flex  flex-col md:flex-row">
+<section className="flex flex-col min-h-screen" >
+      <div className="flex  flex-col md:flex-row  ">
         {/* columna texto */}
-          <div className="w-full md:w-1/2 h-9 pt-16 p-4 text-center  ">
-            <h1 className="font text-4xl lg:text-6xl font-bold tracking-tight text-pink-100 text-center">
+          <div className="w-full md:w-1/2 h-9 pt-16 p-4 text-center flex flex-col gap-4  md:mt-10">
+            <h1 className="text-4xl lg:text-5xl font-bold tracking-tight text-pink-100 text-center ">
               Get the help you need, every step of the way
             </h1>
-            <p className="mt-4 text-xl lg:text-3xl md:p-4 text-pink-200">
+            <p className="  text-xl lg:text-3xl md:p-4 text-pink-200">
               Upgrade YOUR business for better future. Create or upgrade your websites and spend less with Essentials.
             </p>
           </div>
           
           {/* Columna imagen */}
-          <div className="mt-48 md:mt-0 p-8 md:w-1/2">
-            <div className="mt-10 md:mt-0">
+          <div className="md:w-1/2 mt-4 p-8">
+            <div className="mt-48 md:mt-0 ">
               {/* Decorative image  */}
               <div className="h-100 w-100 overflow-hidden rounded-lg">
                 <img
@@ -51,8 +51,8 @@ export const Home = () => {
 
 
 
-<footer className="bg-gray-800 pt-10 sm:mt-10 bottom-0 mt-auto">
-    <div className="max-w-6xl m-auto text-gray-800 flex flex-wrap justify-left">
+<footer className="bg-gray-800 pt-10 ">
+    <div className="max-w-6xl  text-gray-800 flex  justify-left">
       
         
 
@@ -102,15 +102,13 @@ export const Home = () => {
     </div>
 
     {/* <!-- Copyright Bar --> */}
-    <div class="pt-2">
-        <div class="flex pb-5 px-3 m-auto pt-5 
+    <div className="pt-2">
+        <div className="flex pb-5 px-3 m-auto pt-5 
             border-t border-gray-500 text-gray-400 text-sm 
             flex-col md:flex-row max-w-6xl">
-            <div class="mt-2">
+            <div className="mt-2">
                 © Copyright 1998-year. All Rights Reserved.
             </div>
-
-            {/* <!-- Required Unicons (if you want) --> */}
            
         </div>
     </div>
@@ -118,7 +116,7 @@ export const Home = () => {
 
 
 
-
+</section>
 
 
     
